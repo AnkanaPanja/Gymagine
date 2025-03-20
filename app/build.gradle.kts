@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_EXPRESSION")
+
 plugins {
     alias(libs.plugins.android.application)
 }
@@ -29,10 +31,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -40,4 +44,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Glide dependencies
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
 }
